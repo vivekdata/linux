@@ -1,0 +1,131 @@
+installation /uninstallation of git ::
+====================================
+sudo apt-get update 		-to update paths or packages of git 
+sudo apt-get install git 	-to intall git
+git -- version			-to known version of git
+sudo apt-get remove git		-to remove git
+which git			-installation path of git
+==================================================================================================
+			Git Architecture ::
+		        ================
+git clone path					-to clone data from remote repository
+git add ./ file name 				-to move  multiple/ single file to index area from workspace
+git commit -m "comment"				-to move file from staging area/index to local repositry
+git diff filename/shavlu			-to see the difference
+git diff sha1 sha2value 			-to see difference in two sha values
+git diff --staged 				-to see the difference in staged files
+git push					-to push file from local repository to remote repository
+git push filename				-to push single file
+git pull (url)					-to update remote repository data to workspace area
+git fetch 					-to create origin master/updated remote reposisitory files will moves to 							 origin master
+git merge origin/master				-to merge origin master files to workspace area
+git show origin/master 				-to show files in origin master
+git log file name				-to show meta data of the file
+sha1sum filename				-to show file shaw code of commited file
+git show shavalue				-to show the code in that sha value
+git commit -am "msg"filename			-to skip stagging (first it won't skip)
+git commit -am"msg"				-to skip group of files
+git commit --amend -m "msg" 			-to modify latest commit is commit message
+git reset --soft <2 nd latest commit id>	-to revert back file form local repos to stage
+git reset HEAD filename				-to unstage files form stagging area
+git reset --mixed <commit id>			-to revert files from local repos to workspace area
+git mv filename filename1			-to rename or move filess
+git rm 						-to remove
+
+===================================================================================================
+COnfiguration setup::
+===================
+git config --global user.name"vivek" 		-it setup's autorname for  log history
+git config --global user.email"vivek@devops.com	-it setup's email id for log history
+git config --list				-to see all configurations 
+git config --global alias.lo"log --oneline"	-to create alias names
+git config --global  unset alias.lo 		-to remove alias name 
+git config credential.helper store		-to save credential details
+
+===================================================================================================
+creation of localrepository::
+===========================
+git init					-to create emety workspace area (.git file)
+git remote add file url				-to add files to remote repository
+git init --bare filename			-to create remote repository in your local m/c
+git push --upstream filename			-if local & remote repositories are created
+git remote -v 					-to check out remote repos path
+
+===================================================================================================
+Logs::
+====
+git log 					-to show total repository logs
+git log -n2					-to show two latest commited logs
+git log --author="name"				-it will show logs of perticular name
+git log --since="year/month/date"		-it will show the logs from that date
+git log --until="year/month/date"		-it will show the logs upto that date
+git log --since="2018/12/24"--until="2018/12/31"-to see the logs in b/w that date
+git log --grep="bugfix"				-to filter perticular data from logs
+git log --oneline (-5)				-to see logs in one line
+git log --fallow filename			-this will show the previous renamed histry
+git log --oneline--decorate			-to check header point
+git log --reverse				-to see logs  in reverse order
+
+===================================================================================================
+Branching::
+=========
+git branch					-to see list of branches 
+git branch branchname 				-to create branch
+git brabch checkout branchname			-to switch one branch to other branch
+git checkout -b Brnachname			-to create new branch and switched to that branch
+git merge branchnag				-to merge other branch files to target branch
+git push <remote repos path> branch name 	-to push to remote repos
+git push origin --delete branchname		-to delete remote branch
+git push <remote repos path> --delete		-to delete remote branch
+git push origin -d branch name 			-to delete remote branch
+git branch -d branch name 			-to delete local repos branch
+git branch -D branch name 			-to delete local repos branch forcebly
+git clone --single-branch -b branchname<url>	-to clone data form perticular branch
+git clone <url>--single-branch branchname	-to clone data form perticular branch
+git branch -r  					-to check total branches in remote repos
+git branch -a 					-to show all branches
+
+====================================================================================================
+Ignoring files::
+==============
+
+.gitignore filename				-to create ignore files
+
+====================================================================================================
+Stash memory::-	only staged files will move to stash memory
+============
+git stash save"file name"			-to move stagging files to satash memory
+git stash show -p stash@{number}		-to show content in that number
+git stash pop 					-to move files from stash memory to stagging
+git stash apply					-it will move stagging & keep a copy in stash memory
+git stash drop					-to delete  stash memory
+
+======================================================================================================
+Tags::
+====
+git tag tagname					-it creates tag upto latest commit id 
+git tag						-to list of tags
+git show tagname				-show latest commited data
+git push origin tagname 			-to push tag to remote repos
+git push--tags					-to push multiple tags
+git tag -d tagname				-to delete tag
+git push orgin -d tagname			-to delete remote repos tags
+git tag  tagname <commit id>			-to creat tag upto that perticular commit id
+=====================================================================================================
+Re-base vs merge::
+================
+git merge branchname				-creates extra commit id when we merge two newfiles in branch
+git rebase branchname				-it won't create extra commit id
+=====================================================================================================
+To copy folder from one branch to other branch::
+----------------------------------------------
+creat a folder in master1
+	|
+git checkout master
+	|
+git checkout --master1 --foldername
+
+======================================================================================================
+
+
+

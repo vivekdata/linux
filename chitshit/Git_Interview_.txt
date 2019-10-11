@@ -1,0 +1,295 @@
+1.* What is Version Control System?
+-v.c is a system that records changes to a file or set of files over the time so that you can call peticular specific version later
+
+2.* Why we need any Version Control System (v.C.S)
+-vcs helps software team manage changes to sourse code over the time
+-vcs keep track or every modification to the code in special kind of data base
+-vcs records the meta data
+
+3.* What is the difference between SVN and Git?
+svn:
+===
+- centralised vcs--it has only one server
+- no stagging 
+- no access to create branch in claint m/c
+- if there is any network problem we con't work on that time
+- if in case server crashed no backup available
+- meta data is not available in claint machine
+Git:
+===
+- distributed v.c.s- we can share data to other users -everone have full source code
+- having stagging
+- merging is good in git
+
+
+4.* Which VCS you prefer? SVN Or Git? Why?
+
+                ^
+		|
+		|
+
+5.* What are the advantages of Git over SVN?
+
+                ^
+		|
+		|
+
+6. Why we call Git as Distributed VCS?
+- Where as Git is distributed VCS. In the sense, when user clones the repository, he will get source code as well as complete repository on his local disk. since repository is distributed across multiple users and each user has their own local repository, user will be able to submit the changes locally without connecting to the master server. (i.e he can also work offline)
+
+7. Can you explain Git's End-to-End work flow?
+- 1.Initialize the central repository
+- 2.Clone the central repository
+- 3.Make changes and commit
+- 4.Push new commits to central repository
+- 5.brnching
+- 6.Managing conflicts
+8. How do you clone the code using git?
+- git clone <remote repos path>
+
+9.* What is the difference between Commit & Push?
+- git commit -m"msg" 	-to move files from staging to local repos
+- git push		-to push the code to remote repos
+
+10.* What is the difference bet'n Push and Pull?
+- git push		-to push the code to remote repos
+- git pull		-to update remote repos code to local m/cs
+
+11. Can you explain Git architecture?
+work space or sourcefile:
+========================
+- if we add or modify any files in work space it will comes to workspace area
+
+Stagging /Index area:
+====================
+- if we add workspace files it will be stored in stagging area
+Local repository:
+================
+- if we commit the stagging files then it will be stored in local repos
+Remote repository:
+=================
+if we push local repos files then that files will be stored in remote repos
+  
+12.* What is the diff. bet'n Centralized and Distributed VCS.
+- Svn vs Git
+13. Have you ever created Remote repositories in Git? How?
+- yes
+- by using github
+
+14. What happens if I delete .git folder?
+- all git configurations will be deleted
+
+15. How do you configure username, email and editor first time 
+    in Git?
+- git config --global user.name"name"
+- git config --global user.email"suri@devops.com"
+
+16. Where Git stores configuration details?
+- home/user/.gitconfig
+17.* What is the advantage of STAGE in Git?
+- if we move file from work space to stagging it wont create any record(sha value) and it easy to revert that file to wrokspace
+
+18. Git log options related questions
+- gitlog	--author="name"
+	        --grep="filter name"
+	        --oneline
+	        --since/until="year/month/date"
+	        -n2
+
+19. What is SHA-1? How Git uses this?
+- Everything in Git is check-summed before it is stored and is then referred to by that checksum. This means it’s impossible to change the contents of any file ordirectory without Git knowing about it. This functionality is built into Git at thelowest levels and is integral to its philosophy. You can’t lose information intransit or get file corruption without Git being able to detect it.The mechanism that Git uses for this checksumming is called a SHA-1 hash.
+- This is a 40-character string composed of hexadecimal characters (0–9 and a–f)
+- by using sha value we can see modifed content of the file ,we can see difference between to files ,we can see meta data
+20.* I have a file modified in my Working directory. How do you 
+    show the content diff?
+- git diff filename
+21.* How do you show the content diff of a file which is staged?
+- git diff --staged filename
+22. How do you delete and rename a file in Git?
+- git rm
+- git mv 
+23.** What is your branching stratogy?
+	Can you explain your release process/Stratogy?
+- Keep your branch strategy simple by building from these three concepts:
+	1-Use feature branches for all new features and bug fixes
+	2-Merge feature branches into the master branch using pull requests
+	3-Keep master branch up-to-date
+- Develop your features and fix bugs in feature branches based off your master branch (also known as topic branches). Feature branches isolate work in progress from the completed work in the master branch. Git branches are inexpensive to create and maintain. Even small fixes and changes should have their own feature branch.
+Single branching model:
+=======================
+	----------------------------------->master
+           |	       ^merge            |
+           |           |     testing,qa  |merge 
+           ----|||-----()----||------------>1.2.3 code
+                        |         /      |
+			-----||--/------()-/-->1.2.4
+                                /           /
+                               /           /
+                        (release 1.2.3) (release 1.2.4)
+24.** What branching model you suggest for parellel development?
+- Approaching Parallel Development with Branch - Merge Strategies
+     	This section will provide guidance when approaching parallel development. Ultimately, it is better to plan for parallel development in advance, then stumble into it after some mistakes have been made (e.g., lost code because developers clobber one another’s code, missing functionality in a new release, etc.).
+
+25. Developer fixes a bug. How do you take the change to 
+    production?
+- after fixing the bug it goes for testing and qa team after completing test it will merge to master and then it goes for release
+
+25.** Explain defferent branching models that you have worked-on.
+- 1.single branching model
+26. Did you work on merging the code in Git?
+- yes
+
+27.* How do you merge the code in Git?
+go to target brnch and then- git mege dev1.2.3
+ 
+28.* What is merge? What is conflict?
+merge:
+=====
+- if we add some files master branch then we want to merge that files to target branch
+-	1.fastforward merging
+	2.auto merging
+-if we merge two new files in two branches and when merge it creates extra commit id
+Conflicts:
+=========
+-if add two files in two branch having different (a=10,a=30) vlaues,when we merge that two branches appears conflicts  
+29. When do we get conflict?
+
+- Q2.28 
+30.* What is fast-forward merge in Git?
+
+		a1,a2---------------------merge a1,a2,a3,a4
+			|             ^
+	           a3,a4-----------------
+if we merge two new files in two branches and when merge it creates extra commit id
+
+31.* What is the difference between Merge and Rebase?
+- if you merge two new files in two branches and when merge it creates extra commit id
+-if you rebase two new files in two branches and when merge it won't creates extra commit id
+
+32.* How do you resolve the conflit in Git?
+- when devlopers finalisd one value ,then we need to edit conflict file and give devloper finalised value and then add commit 
+34.* What kind of conflicts you have seen?
+
+<<<<<<< HEAD
+jars/Blub.jar
+jars/some-lib.jar
+=======
+plugins/Blub.jar
+>>>>>>> abba123... Move Blub.jar to plugins/
+might want to be resolved to
+
+jars/some-lib.jar
+plugins/Blub.jar
+So you definitely need to think carefully about the resolution!
+
+
+35. Who resolves the conflicts?
+devops engr
+36.** What is the difference between branch and tag?
+	When do you create a branch and tag?
+Branches:
+========
+A brand new repository has only one of those (called master), which automatically moves to the latest page (think commit) you've written. However, you're free to create and use more bookmarks, in order to mark other points of interest in the book, so you can return to them quickly.
+Also, you can always move a particular bookmark to some other page of the book (using git-reset, for instance); points of interest typically vary over time
+Tagging:
+=======
+A tag is similar but different to a branch, in that it marks a point of historical interest in the book. To maintain its historical aspect, once you've shared a tag (i.e. pushed it to a shared remote), you're not supposed to move it to some other place in the book.
+
+37. How do you create a branch and switch to that using single 
+	command?
+- git checkout -b branchname
+38. What is HEAD pointer in Git? Where Git store HEAD info.
+- Head is your current branch. It is a symbolic reference. It is a reference to a branch. You always have HEAD, but HEAD will be pointing to one of these other pointers, to one of the branches that you're on. It is the parent of your next commit. It is what should be what was last checked-out into your working directory... This is the last known state of what your working directory was.
+- git HEAD stores in .git/HEAD
+39. Can we store binary files in Git?
+The answer is both yes and no, and it totally depends on the access levels, in addition to many factors, of the programmers in that project.
+
+Yes:
+===
+For example, a team sits at company’s HQ and the patented technology needs to be added to the final deliverable. However, on that repository, smaller works are sourced to third party developers/ other developers who should not be aware of the source code which binary files are based on.In this case, the company keeps the compiled source codes to the project folder and the final build script only uses that binary file to generate the final deliverable software package. Here, the final product has the patented stuff but not all programmers see the source code.
+Sometimes, only libraries are stored to keep the technology from spreading to all the people involved in the project.
+No:
+==
+Before pushing to master, the source codes are ensured to be atleast building successfully. The build scripts generate a lot of files. These files however are not needed to be in repository. It only increases the work for all programmers in the repository. So, such files are not added to repository.
+
+40. Can skip the staging? How? what are the caveats?
+git commit -am "msg" -if the file is moving first time it won't skip .when u modify that file that time only it will skips
+
+41.* How do you list files/folders modified as part of a commit?
+git show <c id>
+git diff-tree --no-commit-id --name-only -r COMMIT_ID
+or
+git show --pretty="format:" --name-only COMMIT_ID
+
+42.* How do you ignore: ex:
+-create a file name as .gitignore file name 
+
+	all files ending with .class
+	all files having alphanumeric
+	all log files but not build.log
+
+43. How do you add ignore list for all users?
+
+44.* What are the different files you ignore in your project?
+.class 
+45. How to remove a committed change? Or can we remove?
+		$ git reset --hard HEAD~1
+		$ git reset --soft HEAD~1
+46. How do you lock the branch
+
+47. How do you clone the code from a particular SHA?
+
+48. How do you restore a deleted file? Or previous changes of
+	a file?
+
+49. How do you list the diff. of a file between two different 
+	branches.
+		$ git diff dev_1.2.4...master -- LoginUser.java
+
+50. How do you list the changes which are going to be fetched? 
+method:1		
+		$ git fetch		
+		$ git log origin/master ^master
+method:2
+		$ git fetch && git diff master origin/master --name-only
+
+51. What is Git Stash?
+temparary storage area.on;y stagged files will moves to stash memory
+
+52. How do you add a new remote to git? Or How do you attach
+	your local repo with remote?
+
+53. What is git ls-tree?
+	git ls-tree <sha> --> Lists files committed as part of 
+	a commit.
+
+54.How do you clone the repository with a single/particular branch?
+
+$ git clone -b dev_1.2.4 --single-branch https://github.com/nageshvkn/flipkart899.git
+
+55.
+How to compare two branches?
+$ git diff master..dev_1234 [compare local branches]
+$ git diff origin/master..origin/dev_1234 [compare remote branches]
+
+
+Qns:
+1. How do you revert the code which is already committed in the repository?
+2. User A has deleted the file in local repository. User B modified the same file and pushed to remote. Now, when user A push'es the file what will happen?
+3. How do you make local repository as remote?
+4. How do you push a new branch to remote repository?
+5. How do you clone a single branch?
+6. How do you search a commit based on time?
+7. How do you clone a single folder / file? Or is it possible in Git?
+git clone --single-branch -b branchname<git repos path>
+7. How do you list the changes which are fetched?
+	$ git diff origin/master
+8. How do you list the changes before pull/fetch?
+	$ git checkout master                                                  
+	$ git fetch                                        
+	$ git diff origin/master
+	$ git remote rm origin
+	$ git remote add origin https://github.com/nageshvkn/jinglegurus.git
+
+
+
